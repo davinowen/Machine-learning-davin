@@ -104,4 +104,4 @@ Hasil prediksi dikembalikan dalam bentuk label spesies.
 
 📁 Output
 Hasil GridSearch disimpan dalam file:
-hasil_gridsearch_knn.xlsx
+hasil_gridsearch_knn.xlsx       

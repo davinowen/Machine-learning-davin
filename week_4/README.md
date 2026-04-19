@@ -84,4 +84,4 @@ Outlier → masih terdapat beberapa nilai ekstrem
 
 ✅ Kesimpulan
 
-Model Linear Regression mampu memprediksi harga rumah dengan akurasi tinggi dan menjelaskan sebagian besar variasi data. Namun, keberadaan outlier masih mempengaruhi performa model.
+Model Linear Regression mampu memprediksi harga rumah dengan akurasi tinggi dan menjelaskan sebagian besar variasi data. Namun, keberadaan outlier masih mempengaruhi performa model.        
