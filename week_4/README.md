@@ -1,87 +1,71 @@
 📊 Supervised Learning: Linear Regression
+🏡 Prediksi Harga Rumah (USA Housing Dataset)
 
-📁 USA Housing Price Prediction
+📌 Gambaran Umum
+Project ini berfokus pada pembuatan model prediksi harga rumah menggunakan pendekatan Linear Regression. Data yang digunakan berisi beberapa faktor yang secara umum memengaruhi harga rumah, seperti pendapatan rata-rata wilayah, usia rumah, jumlah ruangan, jumlah kamar tidur, serta populasi area tersebut.
 
-📌 Deskripsi
+Kolom alamat sengaja tidak digunakan karena tidak memberikan nilai numerik yang relevan untuk model.
 
-Project ini mengimplementasikan metode Linear Regression untuk memprediksi harga rumah berdasarkan beberapa faktor numerik seperti pendapatan area, usia rumah, jumlah ruangan, jumlah kamar tidur, dan populasi.
+📂 Data yang Digunakan
+Dataset: USA_Housing.csv
 
-Dataset yang digunakan adalah USA Housing Dataset.
+Variabel yang digunakan:
 
-📂 Dataset
+Pendapatan rata-rata area
+Usia rata-rata rumah
+Jumlah rata-rata ruangan
+Jumlah kamar tidur
+Populasi area
 
-File: USA_Housing.csv
+Target yang diprediksi:
 
-Fitur (Independent Variables)
-Avg. Area Income
-Avg. Area House Age
-Avg. Area Number of Rooms
-Avg. Area Number of Bedrooms
-Area Population
-Target (Dependent Variable)
-Price
+Harga rumah
 
-Catatan: Kolom Address dihapus karena tidak relevan dalam pemodelan.
+⚙️ Tools & Library
+Pengolahan data dan pemodelan dilakukan menggunakan Python dengan bantuan beberapa library utama seperti:
+pandas dan numpy untuk manipulasi data, matplotlib dan seaborn untuk visualisasi, serta scikit-learn untuk membangun model regresi.
 
-⚙️ Teknologi & Library
-Python
-numpy
-pandas
-matplotlib
-seaborn
-scikit-learn
-scipy
-🔍 Metodologi
-1. Data Preparation
-Load dataset menggunakan pandas
-Menghapus kolom yang tidak digunakan
-Memisahkan data menjadi fitur (X) dan target (y)
+🔍 Alur Pengerjaan
 
-2. Exploratory Data Analysis (EDA)
-Analisis statistik deskriptif
-Visualisasi distribusi data (histogram & density plot)
-Analisis hubungan antar variabel (pairplot & heatmap)
+Pertama, data dimuat dan dibersihkan dengan menghapus kolom yang tidak diperlukan. Setelah itu, data dipisahkan menjadi fitur (X) dan target (y).
 
-3. Data Splitting
+Selanjutnya dilakukan eksplorasi data untuk memahami pola dan hubungan antar variabel. Ini termasuk melihat distribusi data dan korelasi antar fitur menggunakan visualisasi.
 
-Dataset dibagi menjadi:
+Dataset kemudian dibagi menjadi data training (70%) dan testing (30%) agar model bisa diuji pada data yang belum pernah dilihat sebelumnya.
 
-70% Training Data
-30% Testing Data
+Model Linear Regression kemudian dilatih menggunakan data training, dan menghasilkan nilai intercept serta koefisien untuk masing-masing fitur.
 
-4. Model Training
+📈 Evaluasi Model
 
-Model yang digunakan:
+Performa model diukur menggunakan beberapa metrik:
 
-Linear Regression (scikit-learn)
+MAE menunjukkan rata-rata selisih antara prediksi dan nilai aktual
+RMSE memberikan gambaran error yang lebih sensitif terhadap nilai ekstrem
+R² Score menunjukkan seberapa baik model menjelaskan variasi data
 
-Output model:
+Hasilnya:
+Model memiliki nilai R² sekitar 0.92, yang berarti model mampu menjelaskan sebagian besar variasi harga rumah dengan cukup baik.
 
-Intercept
-Koefisien masing-masing fitur
+Nilai MAE yang rendah menunjukkan bahwa secara umum prediksi cukup akurat. Namun, RMSE yang sedikit lebih tinggi mengindikasikan adanya beberapa data yang menyimpang (outlier).
 
-5. Evaluasi Model
+📊 Insight dari Model
 
-Model dievaluasi menggunakan data testing dengan metrik:
+Dari hasil analisis:
 
-MAE (Mean Absolute Error) → rata-rata kesalahan prediksi
-RMSE (Root Mean Squared Error) → mengukur error besar (sensitif terhadap outlier)
-R² Score → tingkat kemampuan model menjelaskan variansi data
+Usia rumah dan jumlah ruangan memiliki pengaruh paling besar terhadap harga
+Pendapatan area juga berperan penting dan konsisten
+Jumlah kamar tidur ternyata tidak terlalu signifikan dibanding fitur lainnya
 
-📈 Hasil & Analisis
-R² ≈ 0.92 → model memiliki performa sangat baik
-MAE rendah → kesalahan prediksi relatif kecil
-RMSE lebih tinggi dari MAE → menunjukkan adanya beberapa outlier
-Pengaruh Fitur
-Avg. Area House Age dan Avg. Area Number of Rooms → pengaruh terbesar terhadap harga
-Avg. Area Income → stabil dan signifikan
-Avg. Area Number of Bedrooms → kontribusi relatif kecil
+🧪 Pengujian Asumsi
 
-🧪 Uji Asumsi Regresi
-Normalitas Residual → cukup terpenuhi (Shapiro-Wilk Test)
-Homoskedastisitas → tidak ditemukan pola khusus pada residual plot
-Outlier → masih terdapat beberapa nilai ekstrem
+Beberapa asumsi dasar regresi juga diperiksa:
+
+Distribusi residual cenderung normal
+Tidak terlihat pola khusus pada residual (cukup homoskedastis)
+Masih ada beberapa outlier yang bisa memengaruhi hasil model
 
 ✅ Kesimpulan
 
-Model Linear Regression mampu memprediksi harga rumah dengan akurasi tinggi dan menjelaskan sebagian besar variasi data. Namun, keberadaan outlier masih mempengaruhi performa model.        
+Model Linear Regression yang dibangun sudah bekerja dengan cukup baik dalam memprediksi harga rumah. Sebagian besar pola dalam data berhasil ditangkap oleh model, meskipun masih ada pengaruh dari beberapa nilai ekstrem.
+
+Jika ingin meningkatkan performa, langkah selanjutnya bisa fokus pada penanganan outlier atau mencoba model yang lebih kompleks.

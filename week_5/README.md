@@ -1,107 +1,68 @@
-📊 Supervised Learning - Classification (Iris Dataset)
-📌 Deskripsi Project
+📊 Supervised Learning – Klasifikasi (Iris Dataset)
 
-Project ini bertujuan untuk mengimplementasikan algoritma K-Nearest Neighbors (KNN) dalam melakukan klasifikasi pada dataset Iris. Model digunakan untuk memprediksi spesies bunga Iris berdasarkan karakteristik fisiknya.
+🌸 Klasifikasi Spesies Bunga dengan KNN
 
-Dataset yang digunakan adalah Iris Dataset, yang terdiri dari beberapa fitur numerik seperti panjang dan lebar sepal serta petal.
+📌 Gambaran Project
+Project ini dibuat untuk mengklasifikasikan spesies bunga Iris menggunakan algoritma K-Nearest Neighbors (KNN). Model akan mengenali jenis bunga berdasarkan ukuran sepal dan petal yang dimiliki setiap sampel.
+
+Dataset yang digunakan adalah Iris Dataset, yang cukup populer dalam machine learning karena strukturnya sederhana tapi efektif untuk latihan klasifikasi.
 
 📂 Dataset
-Nama file: iris.csv
-Jumlah data: 150 sampel
-Jumlah fitur: 4 fitur numerik
-🔢 Fitur (Independent Variables)
-Sepal Length (cm)
-Sepal Width (cm)
-Petal Length (cm)
-Petal Width (cm)
-🎯 Target (Dependent Variable)
-Species:
+File yang digunakan: iris.csv
+
+Isi dataset:
+
+150 data sampel
+4 fitur numerik
+
+Fitur yang digunakan meliputi:
+
+Panjang sepal
+Lebar sepal
+Panjang petal
+Lebar petal
+
+Target yang diprediksi adalah spesies bunga, yaitu:
+
 Setosa
 Versicolor
 Virginica
-⚙️ Library yang Digunakan
 
-Project ini menggunakan beberapa library Python berikut:
+⚙️ Tools & Library
+Seluruh proses dikerjakan menggunakan Python dengan bantuan:
+pandas dan numpy untuk pengolahan data, matplotlib dan seaborn untuk visualisasi, serta scikit-learn untuk pemodelan dan evaluasi.
 
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-🔍 Tahapan Project
-1. Data Loading
+🔍 Alur Pengerjaan
 
-Dataset dimuat menggunakan pandas:
+Data pertama kali dimuat menggunakan pandas, kemudian dilanjutkan dengan eksplorasi untuk memahami karakteristik dataset. Pada tahap ini dilakukan pengecekan struktur data, statistik dasar, serta visualisasi seperti distribusi fitur dan perbandingan antar kelas.
 
-train = pd.read_csv('iris.csv')
-2. Exploratory Data Analysis (EDA)
+Setelah itu, data dipersiapkan dengan mengecek missing value dan mengubah label kategori menjadi numerik menggunakan LabelEncoder. Dataset kemudian dibagi menjadi data training (70%) dan testing (30%).
 
-Analisis dilakukan untuk memahami distribusi data:
+Karena KNN sangat bergantung pada jarak, fitur dinormalisasi menggunakan StandardScaler agar semua variabel berada pada skala yang sama.
 
-Informasi dataset (info())
-Statistik deskriptif (describe())
-Visualisasi:
-Countplot spesies
-Histogram Sepal Length
-Boxplot distribusi fitur
-3. Data Preprocessing
+Model KNN kemudian dilatih menggunakan data training. Selain menggunakan parameter default, dilakukan juga tuning untuk mencari kombinasi parameter terbaik.
 
-Langkah preprocessing meliputi:
+🛠️ Hyperparameter Tuning
 
-Mengecek missing values
-Encoding label menggunakan LabelEncoder
-Pembagian data:
-70% training
-30% testing
-4. Feature Scaling
+Untuk mendapatkan hasil optimal, dilakukan pencarian parameter terbaik menggunakan GridSearchCV dengan beberapa kombinasi:
 
-Karena KNN sensitif terhadap skala data, dilakukan normalisasi menggunakan:
+jumlah tetangga (n_neighbors)
+metode pembobotan (weights)
+jenis perhitungan jarak (metric)
 
-from sklearn.preprocessing import StandardScaler
-5. Model Training (KNN)
+Evaluasi dilakukan menggunakan metrik seperti accuracy, precision, recall, dan F1-score.
 
-Model KNN dilatih menggunakan:
+📈 Hasil & Analisis
 
-from sklearn.neighbors import KNeighborsClassifier
+Model KNN menunjukkan performa yang sangat baik dengan tingkat akurasi yang tinggi, bahkan bisa mendekati 100% tergantung parameter yang digunakan.
 
-Parameter default dan tuning parameter digunakan untuk membandingkan performa model.
+Hasil terbaik diperoleh setelah proses tuning, yang membantu model memilih jumlah tetangga dan metode jarak yang paling sesuai dengan pola data.
 
-6. Hyperparameter Tuning
+🔮 Penggunaan Model
 
-Dilakukan menggunakan GridSearchCV dengan parameter:
-
-n_neighbors: [3, 5, 7]
-weights: ['uniform', 'distance']
-metric: ['euclidean', 'manhattan']
-
-Evaluasi menggunakan beberapa metrik:
-
-Accuracy
-Precision
-Recall
-F1-Score
-7. Evaluasi Model
-
-Model dievaluasi menggunakan:
-
-Accuracy Score
-Confusion Matrix
-Classification Report
-📈 Hasil
-
-Model KNN menunjukkan performa yang sangat baik dalam mengklasifikasikan data Iris dengan akurasi tinggi (mendekati 100% tergantung parameter).
-
-Hasil terbaik diperoleh dari kombinasi parameter optimal hasil GridSearch.
-
-🔮 Prediksi Data Baru
-
-Model dapat digunakan untuk memprediksi data baru, contoh:
-
-new_data = np.array([[5.1, 3.5, 1.4, 0.2]])
-prediction = best_model.predict(new_data)
-
-Hasil prediksi dikembalikan dalam bentuk label spesies.
+Model yang sudah dilatih bisa digunakan untuk memprediksi data baru. Misalnya, dengan memasukkan ukuran sepal dan petal tertentu, model akan mengembalikan prediksi spesies bunga tersebut.
 
 📁 Output
-Hasil GridSearch disimpan dalam file:
-hasil_gridsearch_knn.xlsx       
+
+Hasil dari proses tuning disimpan dalam file Excel untuk analisis lebih lanjut:
+hasil_gridsearch_knn.xlsx
