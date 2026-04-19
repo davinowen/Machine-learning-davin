@@ -9,7 +9,7 @@ Dalam project ini digunakan beberapa dataset, yaitu:
 California Housing
 Data perusahaan (company.csv)
 Telco Customer Churn
-Tahapan Pengolahan Data
+Tahapan Pengolahan Data 
 🔸 Penanganan Outlier
 
 Untuk mendeteksi dan menangani nilai yang tidak wajar (outlier), digunakan metode IQR (Interquartile Range).
